@@ -1,3 +1,4 @@
+--Base de datos origunal de:
 REM Empresa           :  BookStore S.A.C.
 REM Software          :  Sistema de Comercialización y Control de Stock  (SCCS)
 REM DBMS              :  ORACLE 12G o Superior
@@ -552,4 +553,5 @@ SHOW USER
 SET LINESIZE 600
 SET PAGESIZE 5000
 SELECT * FROM CAT;
+
 
