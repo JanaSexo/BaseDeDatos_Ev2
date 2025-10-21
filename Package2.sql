@@ -1,4 +1,6 @@
+set serveroutput on;
 
+select * from usuario;
 CREATE SEQUENCE venta_seq START WITH 25 INCREMENT BY 1;
 CREATE OR REPLACE PACKAGE libreria_pkg AS
     PROCEDURE comprar_libro(
@@ -25,10 +27,6 @@ CREATE OR REPLACE PACKAGE BODY libreria_pkg AS
         FROM producto
         WHERE idproducto = p_idproducto;
 
-        IF v_stock < p_cantidad THEN
-            dbms_output.put_line('No hay stock');
-            RETURN;
-        END IF;
 
         v_total := p_cantidad * v_precio;
         
@@ -46,8 +44,7 @@ CREATE OR REPLACE PACKAGE BODY libreria_pkg AS
 
         COMMIT;
 
-        dbms_output.put_line('Compra registrada correctamente.');
-        dbms_output.put_line('Total a pagar: $' || v_total);
+       
 
     EXCEPTION
         WHEN NO_DATA_FOUND THEN
@@ -59,8 +56,9 @@ CREATE OR REPLACE PACKAGE BODY libreria_pkg AS
 END libreria_pkg;
 
 EXEC libreria_pkg.comprar_libro('3', 'SEP00005', 2, 1);
+
 select * from venta;
 select * from detalle_venta;
 
 DROP SEQUENCE venta_seq;
-ROLLBACK;
+
