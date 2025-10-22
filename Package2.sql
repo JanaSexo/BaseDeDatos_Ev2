@@ -61,6 +61,6 @@ EXEC libreria_pkg.comprar_libro('3', 'SEP00005', 2, 1);
 select * from venta;
 select * from detalle_venta;
 
-DROP SEQUENCE venta_seq;
+
 
 
