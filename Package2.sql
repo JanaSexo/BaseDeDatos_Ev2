@@ -1,3 +1,4 @@
+ALTER SESSION SET NLS_DATE_FORMAT = 'DD/MM/YYYY HH24:MI:SS';
 set serveroutput on;
 
 select * from usuario;
@@ -61,4 +62,5 @@ select * from venta;
 select * from detalle_venta;
 
 DROP SEQUENCE venta_seq;
+
 
